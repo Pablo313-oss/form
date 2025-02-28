@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phiếu Khảo Sát</title>
+</head>
+<body>
+
+    <h2>BÀI TẬP</h2>
+    <h3>PHIẾU KHẢO SÁT</h3>
+    
+    <table border="1" width="600" cellpadding="5" cellspacing="0">
+        <tr>
+            <td><b>Họ tên</b></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td><b>Màu yêu thích</b></td>
+            <td><input type="color" value=""></td>
+        </tr>
+        <tr>
+            <td><b>Ngày sinh</b></td>
+            <td><input type="date" placeholder="dd/mm/yyyy"></td>
+        </tr>
+        <tr>
+            <td><b>Email</b></td>
+            <td><input type="email" value=""></td>
+        </tr>
+        <tr>
+            <td><b>Ngành nghề</b></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td><b>Website</b></td>
+            <td><input type="text" value=""></td>
+        </tr>
+        <tr>
+            <td><b>Con số yêu thích (1-9)</b></td>
+            <td><input type="number" min="1" max="9" value=""></td>
+        </tr>
+        <tr>
+            <td>Thu nhập</td>
+            <td>
+                100 (USD)
+                <input type="range" min="100" max="1000" step="10" id="slider" oninput="updateValue()">
+                1000 (USD)
+            </td>
+        </tr>
+        <tr>
+            <td>* Tỉ giá</td>
+            <td>
+                <input type="number" id="exchangeRate" value="22500" oninput="updateValue()">
+                = <span id="result">9000000</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="button">Gửi đi</button>
+                <button type="button" onclick="resetValues()">Xóa hết</button>
+            </td>
+        </tr>
+    </table>
+    
+    <script>
+        function updateValue() {
+            var usd = document.getElementById("slider").value;
+            var rate = document.getElementById("exchangeRate").value;
+            document.getElementById("result").textContent = usd * rate;
+        }
+    
+        function resetValues() {
+            document.getElementById("slider").value = 100;
+            document.getElementById("exchangeRate").value = 22500;
+            document.getElementById("result").textContent = 100 * 22500;
+        }
+    </script>
+</body>
+</html>
